@@ -2,16 +2,25 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    // numberKey:[
-      
-    // ]
+    // numbers: [1,2,3,4,5,6,7,8,9,0],
+    currentNumber:[],
+    contacts:[
+      {
+        name:'Lyndab',
+        numero:'0612232323'
+      }
+    ],
   },
   getters: {
   },
   mutations: {
-    // addNumber(state,number){
-    //   state.numberKey.push(number)
-    // }
+    numberDisplay(state,number){
+      state.currentNumber.push(number)
+  },
+
+    contactAdd(state,contact){
+      state.contacts.push(contact)
+    }
   },
   actions: {
   },

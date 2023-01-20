@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ClavierView from '../views/ClavierView.vue'
+import ContactView from '../views/ContactView.vue'
+
 
 const routes = [
   {
@@ -20,6 +22,11 @@ const routes = [
     path: '/clavier',
     name: 'clavier',
     component: ClavierView
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactView
   },
 ]
 

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <section class="container_template">
+    <section>
+        <div class="container_bottom_keyboard">
             <img src="@/assets/clavierphone.png" alt="background" id="keyboard_background">
             <div class="content_keyboard">
                 <div class="num_container">
@@ -13,8 +13,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+            <button>Appeler</button>
+        </div>
+    </section>
 </template>
 <script>
 export default {
@@ -23,19 +24,19 @@ export default {
     data() {
         return {
             numbers: [1,2,3,4,5,6,7,8,9,0],
-            currentNumber:[]
+            // currentNumber:[]
         }
     },
     methods: {
         numberDisplay(number){
-            this.currentNumber.push(number)
+            this.$store.commit('numberDisplay',number)
         }
     },
-    // computed:{
-    //     showNumber(){
-    //         return this.$store.state.numberKey
-    //     }
-    // }
+    computed:{
+        currentNumber(){
+            return this.$store.state.currentNumber
+        }
+    }
 }
 </script>
 <style scoped>
@@ -46,19 +47,10 @@ export default {
     font-family: 'Roboto', sans-serif;
     font-family: 'Wallpoet', cursive;
 }
-    
-    .container_template{
-        /* display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; */
-        height: 80vh;
-        widows: auto;
-    }
 
     #keyboard_background{
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         align-items: center;
         height: 80vh;
         width: 100%;
@@ -69,7 +61,6 @@ export default {
 
     .content_keyboard{
         display: flex;
-        justify-content: space-around;
         flex-direction: column;
         align-items: center;
     }
@@ -80,9 +71,10 @@ export default {
         align-items: center;
         height: 20vh;
         margin-bottom: 2rem;
-        font-size: 2rem;
+        font-size: 2.2rem;
         
     }
+
     .button_container{
         flex-wrap: wrap;
         width: 50vh;
@@ -98,13 +90,15 @@ export default {
     display: inline-block;
     font-weight: 600;
     font-size: 18px;
-    padding: 0 18px;
+
     line-height: 50px;
     text-align: center;
     text-decoration: none;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    min-width: 120px;
+    padding: 0 25px;
     }
 
     .bouton_num:hover {
@@ -114,13 +108,6 @@ export default {
     .bouton_num:active {
     box-shadow: #BCD1FC 2px 2px 0 0;
     transform: translate(2px, 2px);
-    }
-
-    @media (min-width: 768px) {
-    .bouton_num {
-        min-width: 120px;
-        padding: 0 25px;
-    }
     }
 
 </style>
