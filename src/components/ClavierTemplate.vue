@@ -1,11 +1,15 @@
 <template>
     <div>
         <h2>Patate</h2>
+        <div>
+            <input type="text" v-model="value">
+        </div>
         <section class="container_template">
+
             <div class="clavier_container">
                 <!-- <img src="../assets/clavierphone.png" alt="Clavier fond d'écran" id="wallpaper_clavier"> -->
                 <div class="button_container">
-                    <button v-for="i in 10" :key="i" @click="onClick(i-1)" :class="{ active: i === activeButton }" class="bouton_num">{{ i-1 }}</button>
+                    <button v-for="number in numbers" :key="number" @click="numberDisplay(number)" class="bouton_num">{{ number }}</button>
                 </div>
             </div>
         </section>
@@ -16,15 +20,22 @@ export default {
     name: 'ClavierTemplate',
 
     data() {
-    return {
-        activeButton: null
+        return {
+            value: '',
+            numbers: [1,2,3,4,5,6,7,8,9,0],
+            currentNumber:null
         }
     },
     methods: {
-    onClick(i) {
-        this.activeButton = i
-        // console.log(Button ${i} clicked)
-    }
+        numberDisplay(number){
+            // this.currentNumber=number
+            this.value=`${this.value}${number}`
+        }
+    },
+    computed:{
+        showNumber(){
+            return this.$store.state.numberKey
+        }
     }
 }
 </script>
