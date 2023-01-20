@@ -1,8 +1,5 @@
 <template>
     <div>
-        <!-- {{ number_digital }} -->
-    </div>
-    <div>
         <h1>Clavier</h1>
         <ClavierTemplate/>
     </div>

@@ -1,15 +1,16 @@
 <template>
     <div>
-        <h2>Patate</h2>
-        <div>
-            <input type="text" v-model="value">
-        </div>
         <section class="container_template">
+            <img src="@/assets/clavierphone.png" alt="background" id="keyboard_background">
+            <div class="content_keyboard">
+                <div class="num_container">
+                    <p v-for="num in currentNumber" :key="num">{{ num }}</p>
+                </div>
 
-            <div class="clavier_container">
-                <!-- <img src="../assets/clavierphone.png" alt="Clavier fond d'écran" id="wallpaper_clavier"> -->
-                <div class="button_container">
-                    <button v-for="number in numbers" :key="number" @click="numberDisplay(number)" class="bouton_num">{{ number }}</button>
+                <div class="keyboard_container">
+                    <div class="button_container">
+                        <button v-for="number in numbers" v-bind:key="number" @click="numberDisplay(number)" class="bouton_num">{{ number }}</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -21,48 +22,67 @@ export default {
 
     data() {
         return {
-            value: '',
             numbers: [1,2,3,4,5,6,7,8,9,0],
-            currentNumber:null
+            currentNumber:[]
         }
     },
     methods: {
         numberDisplay(number){
-            // this.currentNumber=number
-            this.value=`${this.value}${number}`
+            this.currentNumber.push(number)
         }
     },
-    computed:{
-        showNumber(){
-            return this.$store.state.numberKey
-        }
-    }
+    // computed:{
+    //     showNumber(){
+    //         return this.$store.state.numberKey
+    //     }
+    // }
 }
 </script>
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Wallpoet&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Wallpoet', cursive;
+}
     
     .container_template{
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
+        height: 80vh;
+        widows: auto;
+    }
+
+    #keyboard_background{
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .clavier_container{
-        /* width: 60vh; */
         height: 80vh;
-        width: auto;
-        background-image: url('~@/assets/clavierphone.png');
-        background-repeat: no-repeat;
-        background-size: contain;
+        width: 100%;
+        object-fit: contain;
+        position: fixed;
+        z-index: -1;
     }
 
-    /* #wallpaper_clavier{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    } */
-    
+    .content_keyboard{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .num_container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 20vh;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        
+    }
     .button_container{
         flex-wrap: wrap;
         width: 50vh;
