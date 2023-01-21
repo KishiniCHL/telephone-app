@@ -34,7 +34,7 @@ export default {
     },
     computed:{
         currentNumber(){
-            return this.$store.state.currentNumber
+            return this.$store.state.currentNumber.slice(0,10)
         }
     }
 }

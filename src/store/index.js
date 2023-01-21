@@ -8,6 +8,10 @@ export default createStore({
       {
         name:'Lyndab',
         numero:'0612232323'
+      },
+      {
+        name: 'Sara',
+        numero:'0692334423'
       }
     ],
   },

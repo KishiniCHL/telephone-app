@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span>{{ contact.name }}</span>
+        <span>{{ contact.name }}</span> |
         <span>{{ contact.numero }}</span>
     </div>
 </template>
