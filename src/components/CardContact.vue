@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="card_container">
-            <span>{{ contact.name }}</span> :
+            <span>{{ contact.name }}</span> |
             <span>{{ contact.numero }}</span> 
             <button v-on:click="callTimestamp">Appeler</button>
         </div>

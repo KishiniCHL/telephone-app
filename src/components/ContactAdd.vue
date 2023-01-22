@@ -10,7 +10,7 @@
                     >
                     <!-- <span error="false" class="error">Le name doit avoir au moins 3 caractères</span> -->
                 <input 
-                    type="number"
+                    type="text"
                     placeholder="Numéro..."
                     v-model="contactForm.numero"
                     @input="limitNum"
@@ -35,7 +35,7 @@ export default {
         contactForm:[
         {
             name:'',
-            numero:'null'
+            numero:null
         }
     ]
         }
@@ -43,12 +43,12 @@ export default {
 
     methods:{
         contactAdd(){
-            if(this.contactForm.name =="" || this.contactForm.numero==null)return
+            if(this.contactForm.name =="" || this.contactForm.numero===null)return
 
-            if(this.contactForm.numero.length< 10){
-                this.error = true
-                return
-            }
+            // if(this.contactForm.numero.length< 10){
+            //     // this.error = true
+            //     return
+            // }
 
             // if(this.contacts.find(contact => contact.name===this.contactForm.name)) return
 
@@ -56,7 +56,7 @@ export default {
             this.$store.commit('contactAdd', this.contactForm)
             this.contactForm={
                 name:"",
-                age:null
+                numero:null
             }
         },
         limitNum(event){

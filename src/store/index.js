@@ -8,17 +8,22 @@ export default createStore({
       {
         name:'Lyndab',
         numero:'0612232323',
-        time:'12:12',
+        // time:'12:12',
         timestamp:null
       },
       {
         name: 'Sara',
         numero:'0692334423',
-        time:'12:12',
+        // time:'12:12',
+        timestamp:null
+      },
+      {
+        name:'Hoai-Lan',
+        numero:'0719182042',
         timestamp:null
       }
     ],
-    // timestamp:null,
+    timestamp:null,
   },
   getters: {
   },
