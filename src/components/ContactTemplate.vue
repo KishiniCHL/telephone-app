@@ -1,5 +1,5 @@
 <template>
-    <h2>Test</h2>
+    <!-- <h2>Test</h2> -->
     <div class="cartes">
         <div v-for="contact in contacts" :key="contact.name">
             <CardContact :contact="contact"/>

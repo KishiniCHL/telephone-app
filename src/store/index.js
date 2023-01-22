@@ -7,13 +7,18 @@ export default createStore({
     contacts:[
       {
         name:'Lyndab',
-        numero:'0612232323'
+        numero:'0612232323',
+        time:'12:12',
+        timestamp:null
       },
       {
         name: 'Sara',
-        numero:'0692334423'
+        numero:'0692334423',
+        time:'12:12',
+        timestamp:null
       }
     ],
+    // timestamp:null,
   },
   getters: {
   },
@@ -24,7 +29,11 @@ export default createStore({
 
     contactAdd(state,contact){
       state.contacts.push(contact)
-    }
+    },
+
+    callTimestamp(state){
+      state.contacts.timestamp = new Date().toString()
+  }
   },
   actions: {
   },
